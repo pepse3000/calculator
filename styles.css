@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+body {
+    height: 100vh;
+    background: rgb(219,131,79);
+    background: linear-gradient(160deg, #dfe0e5 0%, #a7abb7 40%, #a7abb7 100%);
+    display: flex;
+    align-items: center;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.calculator-app {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 8px 9px 8px -6px rgba(37, 37, 37, 0.8);
+    background: linear-gradient(120deg, #3b3f48 0%, #252935 100%);
+    margin: 0 auto;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.screen-handler {
+    height: 220px;
+    margin-bottom: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+}
+
+.memory-output {
+    overflow: hidden;
+    color: #747881;
+    font-size: 30px;
+}
+
+.current-output {
+    overflow: hidden;
+    display: flex;
+    color: #eaeef1;
+    max-width: 400px;
+    flex-wrap: wrap;
+    justify-content: end;
+    font-size: 52px;
+}
+
+.btn-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-input {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    border-radius: 20px;
+    border: 5px solid transparent;
+    margin: 3px;
+    color:rgb(228, 228, 228);
+    font-size: 32px;
+    box-shadow: 2px 9px 8px -6px rgba(37, 37, 37, 0.9);
+    background: 
+        linear-gradient(120deg, #292d36 0%, #3b3f49 50%, rgb(61, 65, 75) 100%) padding-box, 
+        linear-gradient(329deg, #292d36 0%, #3b3f49 50%, rgb(61, 65, 75) 100%) border-box; 
+    padding: 25px;
+
+}
+
+.btn-input.operate {
+    width: 205px;
+}
+
+.btn-input.orange {
+    background: 
+        linear-gradient(120deg, #c85c11 0%, #e67d12 50%, #e28d18 100%) padding-box, 
+        linear-gradient(329deg, #c85c11 0%, #e67d12 50%, #e28d18 100%) border-box;
+}
+
+.btn-input.gray{
+    background: 
+        linear-gradient(120deg, #4b4f5b 0%, #5b616f 50%, #676d7b 100%) padding-box, 
+        linear-gradient(329deg, #4b4f5b 0%, #5b616f 50%, #676d7b 100%) border-box; 
+}
+
+.remove-img {
+    width: 50px;
+}
+
+.btn-input.orange:hover {
+    background: 
+    linear-gradient(120deg, #db6918 0%, #e67d12 50%, #e28d18 100%) padding-box, 
+    linear-gradient(329deg, #db6918 0%, #e67d12 50%, #e28d18 100%) border-box;
+}
+
+.btn-input.gray:hover {
+    background: 
+        linear-gradient(120deg, #5a5e6d 0%, #5b616f 50%, #676d7b 100%) padding-box, 
+        linear-gradient(329deg, #5a5e6d 0%, #5b616f 50%, #676d7b 100%) border-box; 
+}
+
+.btn-input:hover {
+    scale: .95;
+    transition: 0.2s;
+    background: 
+        linear-gradient(120deg, #30353f 0%, #3b3f49 50%, rgb(61, 65, 75) 100%) padding-box, 
+        linear-gradient(329deg, #292d36 0%, #3b3f49 50%, rgb(78, 84, 97) 100%) border-box; 
+}
+
+
