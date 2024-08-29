@@ -22,7 +22,7 @@ function operate (operator, a, b) {
             return substract(a, b);
         case "x":
             return multiply(a, b);
-        case "/":
+        case "÷":
             return divide(a, b);
     }
 }
@@ -37,40 +37,57 @@ function isNumber(btn) {
 }
 
 function addEventToEachButton () {
-    const allButtons = document.querySelectorAll(".btn-input")
+    const allButtons = document.querySelectorAll(".btn-input");
 
     allButtons.forEach((btn) => {
         if (isNumber(btn)) {
-            btn.addEventListener("click", () => appendNumber(btn.textContent))
+            btn.addEventListener("click", () => appendNumber(btn.textContent));
         }
 
         if (btn.textContent == "AC") {
-            btn.addEventListener("click", resetOutput)
+            btn.addEventListener("click", resetOutput);
         }
 
         if (btn.textContent == "Del") {
-            btn.addEventListener("click", deleteNumber)
+            btn.addEventListener("click", deleteNumber);
         }
 
         if (btn.textContent == ".") {
-            btn.addEventListener("click", addComma)
+            btn.addEventListener("click", addComma);
         }
 
         if (btn.textContent == "+") {
-            btn.addEventListener("click", () => addOperation("+"))
+            btn.addEventListener("click", () => addOperation("+"));
+        }
+
+        if (btn.textContent == "-") {
+            btn.addEventListener("click", () => addOperation("-"));
         }
 
         if (btn.textContent == "x") {
-            btn.addEventListener("click", () => addOperation("x"))
+            btn.addEventListener("click", () => addOperation("x"));
+        }
+
+        if (btn.textContent == "÷") {
+            btn.addEventListener("click", () => addOperation("÷"));
+        }
+
+        if (btn.textContent == "%") {
+            btn.addEventListener("click", countPercent);
         }
 
         if (btn.textContent == "=") {
-            btn.addEventListener("click", submitOperate)
+            btn.addEventListener("click", submitOperate);
         }
     })
 }
 
 function appendNumber (number) {
+    if (output.textContent.length > 15 || output.textContent == "Limit") {
+        output.textContent = "Limit";
+        return;
+    }
+
     if (output.textContent && output.textContent != "0") {
         output.textContent += number;
     } else {
@@ -113,6 +130,12 @@ function submitOperate () {
     }
 
     const input = memoryOutput.textContent.split(" ")
+
+    if (input[3] == "%") {
+        countPercent();
+        return;
+    }
+
     let firstNumber = input[0];
     const operation = input[1];
     let secondNumber = 0;
@@ -137,7 +160,6 @@ function checkFloat(result) {
     const splittedResult = result.toString().split("");
     if (splittedResult.includes(".")) {
         const floatArr = splittedResult.slice(splittedResult.indexOf(".") + 1);
-        console.log(floatArr)
         if (floatArr.length > 5) {
             return +result.toFixed(5);
         }
@@ -146,8 +168,31 @@ function checkFloat(result) {
     return result;
 }
 
+function countPercent() {
+    let percent = output.textContent / 100;
+    let input = memoryOutput.textContent.split(" ")
+    let firstNumber = input[0];
+    let operation = input[1];
+
+    if (memoryOutput.textContent.split(" ")[3] == "%") {
+        percent = memoryOutput.textContent.split(" ")[2]
+        input = parseFloat(output.textContent)
+
+        const result = input + (input * percent / 100)
+        output.textContent = checkFloat(result)
+        memoryOutput.textContent = `${input} ${operation} ${percent} % =`
+        return;
+    }
+
+    
+
+    const result = parseFloat(firstNumber) + (firstNumber * percent)
+    memoryOutput.textContent = `${firstNumber} ${operation} ${output.textContent} % =`
+    output.textContent = checkFloat(result)
+}
+
 output = document.querySelector(".current-output");
-memoryOutput = document.querySelector(".memory-output")
+memoryOutput = document.querySelector(".memory-output");
 
 // App Init
 startApp();
