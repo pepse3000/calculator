@@ -201,12 +201,28 @@ function countPercent() {
         }
         
         output.textContent = checkFloat(result)
-        memoryOutput.textContent = `${input} ${operation} ${percent} % =`
+        memoryOutput.textContent = `${input} ${operation} ${percent} % =`;
         return;
     }
 
-    const result = parseFloat(firstNumber) + (firstNumber * percent)
-    memoryOutput.textContent = `${firstNumber} ${operation} ${output.textContent} % =`
+    let result = parseFloat(firstNumber) + (firstNumber * percent);
+
+    switch (operation) {
+        case "+":
+            result = parseFloat(firstNumber) + (firstNumber * percent);
+            break;
+        case "x":
+            result = parseFloat(firstNumber) * (firstNumber * percent);
+            break;
+        case "÷":
+            result = parseFloat(firstNumber) / (firstNumber * percent);
+            break;
+        case "-":
+            result = parseFloat(firstNumber) - (firstNumber * percent);
+            break;
+    }
+
+    memoryOutput.textContent = `${firstNumber} ${operation} ${output.textContent} % =`;
     output.textContent = checkFloat(result)
 }
 
