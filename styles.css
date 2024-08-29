@@ -38,8 +38,11 @@ body {
 }
 
 .memory-output {
+    display: flex;
     overflow: hidden;
+    flex-wrap: wrap;
     color: #747881;
+    max-width: 400px;
     font-size: 30px;
 }
 
@@ -98,19 +101,19 @@ body {
     width: 50px;
 }
 
-.btn-input.orange:hover {
+.btn-input.orange:active {
     background: 
     linear-gradient(120deg, #db6918 0%, #e67d12 50%, #e28d18 100%) padding-box, 
     linear-gradient(329deg, #db6918 0%, #e67d12 50%, #e28d18 100%) border-box;
 }
 
-.btn-input.gray:hover {
+.btn-input.gray:active {
     background: 
         linear-gradient(120deg, #5a5e6d 0%, #5b616f 50%, #676d7b 100%) padding-box, 
         linear-gradient(329deg, #5a5e6d 0%, #5b616f 50%, #676d7b 100%) border-box; 
 }
 
-.btn-input:hover {
+.btn-input:active {
     scale: .95;
     transition: 0.2s;
     background: 
