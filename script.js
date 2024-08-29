@@ -129,6 +129,11 @@ function submitOperate () {
         return;
     }
 
+    if (output.textContent.length > 15 || output.textContent == "Limit") {
+        output.textContent = "Limit";
+        return;
+    }
+
     const input = memoryOutput.textContent.split(" ")
 
     if (input[3] == "%") {
