@@ -174,27 +174,28 @@ function countPercent() {
     let firstNumber = input[0];
     let operation = input[1];
 
-    console.log(input)
-
     if (memoryOutput.textContent.split(" ")[3] == "%") {
         percent = memoryOutput.textContent.split(" ")[2]
-        input = output.textContent
-        
+        input = parseFloat(output.textContent)
+
         let result = 0;
 
         switch (operation) {
             case "+":
-                result = parseFloat(input) + (input * percent / 100);
+                result = input + (input * percent / 100);
+                break;
             case "x":
                 result = input * (input * percent / 100);
+                break;
             case "÷":
                 result = input / (input * percent / 100);
+                break;
             case "-":
                 result = input - (input * percent / 100);
+                break;
         }
         
         output.textContent = checkFloat(result)
-        console.log(checkFloat(result))
         memoryOutput.textContent = `${input} ${operation} ${percent} % =`
         return;
     }
