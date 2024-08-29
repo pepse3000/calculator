@@ -25,6 +25,7 @@ body {
     margin: 0 auto;
     border-radius: 15px;
     padding: 15px;
+    scale: 0.8;
 }
 
 .screen-handler {
