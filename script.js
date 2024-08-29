@@ -174,6 +174,10 @@ function checkFloat(result) {
 }
 
 function countPercent() {
+    if (memoryOutput.textContent == "" || output.textContent == "" ) {
+        return;
+    }
+
     let percent = output.textContent / 100;
     let input = memoryOutput.textContent.split(" ")
     let firstNumber = input[0];
